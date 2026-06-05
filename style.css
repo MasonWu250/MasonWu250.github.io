@@ -109,10 +109,11 @@ nav {
     margin-bottom: 48px;
     padding: 16px 24px;
     background: #fff;
+    background-size: auto;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
 }
-nav h1 {
+#ici-asu-tatan {
     margin: 0;
     font-size: 1.2rem;
     font-weight: 700;
@@ -131,7 +132,7 @@ nav h1 {
 .nav-li a {
     color: #666;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 500;
     padding: 6px 14px;
     border-radius: 8px;
@@ -141,4 +142,117 @@ nav h1 {
 .nav-li a:hover {
     background: #000;
     color: #fff;
+}
+/* Portfolio styles */
+.content h1 {
+  color: black;
+}
+
+#portfolio {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#portfolio li {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#portfolio a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #444;
+  padding: 16px 24px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  transition: background 0.75s ease, color 0.75s ease, transform 0.75s ease;
+}
+
+#portfolio a:hover {
+  background: #000;
+  color: #fff;
+  transform: translateX(4px);
+}
+
+#portfolio a::after {
+  content: "->";
+  font-size: 0.85rem;
+  opacity: 0.4;
+  transition: opacity 0.75s ease;
+  white-space: nowrap;
+}
+
+#portfolio a:hover::after {
+  opacity: 1;
+}
+#mini-beye-baita {
+    font-size: 40px;
+}
+#FSD-weilen {
+    font-size: 1.4rem;
+}
+.nav-li {
+    list-style: none;   
+}
+#navul {
+display: flex;
+}
+/* responsive web design */
+@media screen and (min-width: 120px) and (max-width: 1080px) {
+  main {
+    height: 100ch;
+    zoom: 1.5;
+    display: grid;
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  #all-contents {
+    height: 100ch;
+    margin: none;
+  }
+
+  a {
+    font-size: 42px;
+  }
+
+  .sidebar {
+    margin-right: 0px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar-img {
+    width: 100%;
+  }
+
+  p,
+  li {
+    font-size: 24px;
+  }
+
+  .content {
+    align-content: center;
+    justify-content: center;
+  }
 }
