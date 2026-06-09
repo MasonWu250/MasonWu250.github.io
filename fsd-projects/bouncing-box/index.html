@@ -61,6 +61,8 @@
       box.on("click", handleBoxClick);
       board.on("click", handleBoardClick);
 
+
+
       // moves the Box to a new position on the screen along the X-Axis
       function moveBoxTo(newPositionX, newPositionY) {
         box.css("left", newPositionX);
@@ -87,6 +89,14 @@
       var boardheight = jQuery(window).height();
       var hvdunIncrement = 3;
       var taxanTon = 0;
+
+
+
+      function getRandomColor() {
+        var sulaTon = Math.random() * 255;
+        var bocoTon = "rgb(" + sulaTon + ", " + sulaTon2 + ", " + sulaTon3 + ")";
+      }
+
 
 
 
@@ -117,6 +127,8 @@
         if (YOron < 0) {
           hvdunY *= -1;
         }
+        
+        
 
       }
 
@@ -134,21 +146,29 @@
         hvdun = hvdunIncrement * fen + 10;
         hvdunY = hvdunIncrement * fen + 10;
         changeBoxText(fen);
+        var sulaTon = Math.random() * 255;
+        var sulaTon2 = Math.random() * 255;
+        var sulaTon3 = Math.random() * 255;
+        var bocoTon = "rgb(" + sulaTon + ", " + sulaTon2 + ", " + sulaTon3 + ")";
+        box.css("background-color", bocoTon);
+
 
         if (fen % 3 === 0) {
           hvdunIncrement *= 1.5;
 
         }
 
+
       }
       function handleBoardClick() {
         taxanTon += 1;
         if (taxanTon > 15) {
           Wajibu();
-          
+        
         }
 
       }
+    
 
 
 
