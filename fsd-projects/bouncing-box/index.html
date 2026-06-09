@@ -19,7 +19,7 @@
       /* Change me! */
       left: 0px;
     }
-    
+
 
     .board {
       height: 100vh;
@@ -52,17 +52,21 @@
       });
 
       // Every 50 milliseconds, call the update Function (see below)
-      setInterval(update, 50);
+      var sidenErin = setInterval(update, 50);
+      function Wajibu() {
+        clearInterval(sidenErin);
+      }
 
       // Every time the box is clicked, call the handleBoxClick Function (see below)
       box.on("click", handleBoxClick);
+      board.on("click", handleBoardClick);
 
       // moves the Box to a new position on the screen along the X-Axis
       function moveBoxTo(newPositionX, newPositionY) {
         box.css("left", newPositionX);
         box.css("top", newPositionY);
       }
-    
+
 
       // changes the text displayed on the Box
       function changeBoxText(newText) {
@@ -81,8 +85,10 @@
       var YOron = 0
       var hvdunY = 10;
       var boardheight = jQuery(window).height();
-    
-      
+      var hvdunIncrement = 3;
+      var taxanTon = 0;
+
+
 
 
 
@@ -112,12 +118,6 @@
           hvdunY *= -1;
         }
 
-
-
-
-
-
-
       }
 
       /**
@@ -130,21 +130,36 @@
       function handleBoxClick() {
         XOron = randNum;
         YOron = randNum;
-        fen++; 
-        hvdun = 3*fen+10;
-        hvdunY = 3*fen+10;
+        fen++;
+        hvdun = hvdunIncrement * fen + 10;
+        hvdunY = hvdunIncrement * fen + 10;
         changeBoxText(fen);
-      
 
+        if (fen % 3 === 0) {
+          hvdunIncrement *= 1.5;
 
+        }
 
-
+      }
+      function handleBoardClick() {
+        taxanTon += 1;
+        if (taxanTon > 15) {
+          Wajibu();
+          
+        }
 
       }
 
 
 
-    })();
+
+
+
+    }
+
+
+
+    )();
   </script>
 </body>
 
