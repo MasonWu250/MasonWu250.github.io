@@ -55,6 +55,7 @@
       var sidenErin = setInterval(update, 50);
       function Wajibu() {
         clearInterval(sidenErin);
+        
       }
 
       // Every time the box is clicked, call the handleBoxClick Function (see below)
@@ -89,6 +90,8 @@
       var boardheight = jQuery(window).height();
       var hvdunIncrement = 3;
       var taxanTon = 0;
+      var coinflip = Math.random();
+
 
 
 
@@ -127,8 +130,8 @@
         if (YOron < 0) {
           hvdunY *= -1;
         }
-        
-        
+
+
 
       }
 
@@ -140,21 +143,35 @@
        * - move the box to the left side of the screen.
        */
       function handleBoxClick() {
-        XOron = randNum;
-        YOron = randNum;
-        fen++;
-        hvdun = hvdunIncrement * fen + 10;
-        hvdunY = hvdunIncrement * fen + 10;
-        changeBoxText(fen);
-        var sulaTon = Math.random() * 255;
-        var sulaTon2 = Math.random() * 255;
-        var sulaTon3 = Math.random() * 255;
-        var bocoTon = "rgb(" + sulaTon + ", " + sulaTon2 + ", " + sulaTon3 + ")";
-        box.css("background-color", bocoTon);
+        if (taxanTon <= 20) {
+          XOron = Math.random() * boardWidth;
+          YOron = Math.random() * boardheight;
+          fen++;
+          hvdun = hvdunIncrement * fen + 10;
+          coinflip = Math.random();
+          if (coinflip > 0.5) { hvdun *= 1 }
+          else { hvdun *= -1 }
+          hvdunY = hvdunIncrement * fen + 10;
+          coinflip = Math.random();
+          if (coinflip > 0.5) { hvdunY *= 1 }
+          else { hvdunY *= -1 }
+
+
+          changeBoxText(fen);
+          var sulaTon = Math.random() * 255;
+          var sulaTon2 = Math.random() * 255;
+          var sulaTon3 = Math.random() * 255;
+          var bocoTon = "rgb(" + sulaTon + ", " + sulaTon2 + ", " + sulaTon3 + ")";
+          box.css("background-color", bocoTon);
+        }
+        else {
+          handleBoardClick();
+
+        }
 
 
         if (fen % 3 === 0) {
-          hvdunIncrement *= 1.5;
+          hvdunIncrement *= 1.1;
 
         }
 
@@ -162,13 +179,13 @@
       }
       function handleBoardClick() {
         taxanTon += 1;
-        if (taxanTon > 15) {
+        if (taxanTon > 20) {
           Wajibu();
-        
+
         }
 
       }
-    
+
 
 
 
